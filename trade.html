@@ -4,136 +4,129 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Trade QEVORA Card | QEVORA</title>
-
-  <meta name="description"
-        content="Submit an eligible QEVORA gift card for review and payout.">
+  <title>Trade Your Card | QEVORA</title>
 
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
     }
 
     body {
-      background: #07090d;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #080b12;
       color: #ffffff;
-      min-height: 100vh;
+      line-height: 1.6;
     }
 
     header {
-      padding: 22px 7%;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid #1e2533;
+      background: #0b0f18;
     }
 
     .logo {
-      font-size: 24px;
+      font-size: 25px;
       font-weight: 800;
-      letter-spacing: 3px;
-    }
-
-    header a {
-      color: #b7bdc7;
-      text-decoration: none;
-      font-size: 14px;
+      letter-spacing: 2px;
+      color: #ffffff;
     }
 
     .container {
       width: 92%;
-      max-width: 720px;
-      margin: 50px auto 80px;
+      max-width: 760px;
+      margin: 35px auto 70px;
     }
 
-    .intro {
+    .title {
       text-align: center;
-      margin-bottom: 35px;
-    }
-
-    .intro h1 {
-      font-size: 42px;
-      margin-bottom: 12px;
-    }
-
-    .intro p {
-      color: #949ba7;
-      font-size: 15px;
-    }
-
-    .form-card {
-      background: #0d1118;
-      border: 1px solid rgba(255,255,255,0.09);
-      border-radius: 18px;
-      padding: 30px;
-    }
-
-    .form-section {
       margin-bottom: 30px;
     }
 
-    .form-section h2 {
-      font-size: 18px;
+    .title h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .title p {
+      color: #9ba5b5;
+      font-size: 15px;
+    }
+
+    .card {
+      background: #101621;
+      border: 1px solid #202938;
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .card h2 {
+      font-size: 19px;
       margin-bottom: 18px;
     }
 
     label {
       display: block;
-      color: #c5cad2;
-      font-size: 13px;
-      margin-bottom: 8px;
+      font-size: 14px;
+      color: #c9d0dc;
+      margin-bottom: 7px;
     }
 
     input,
     select {
       width: 100%;
-      padding: 15px;
-      background: #080b10;
-      color: #ffffff;
-      border: 1px solid rgba(255,255,255,0.12);
+      padding: 14px;
       border-radius: 10px;
+      border: 1px solid #2b3444;
+      background: #080c13;
+      color: #ffffff;
       outline: none;
-      margin-bottom: 18px;
+      font-size: 15px;
+      margin-bottom: 17px;
     }
 
     input:focus,
     select:focus {
-      border-color: rgba(255,255,255,0.45);
+      border-color: #667085;
     }
 
-    .amount-preview {
+    .summary {
+      background: #0a0f17;
+      border: 1px solid #242d3c;
+      border-radius: 14px;
       padding: 18px;
-      background: #080b10;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.08);
-      margin-bottom: 20px;
+      margin-top: 10px;
     }
 
-    .amount-preview div {
+    .summary-row {
       display: flex;
       justify-content: space-between;
-      margin: 8px 0;
-      color: #9ba2ad;
+      gap: 15px;
+      padding: 8px 0;
+      color: #c8cfda;
       font-size: 14px;
     }
 
-    .amount-preview .total {
+    .summary-row strong {
       color: #ffffff;
-      font-weight: 700;
-      font-size: 17px;
-      padding-top: 10px;
-      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .summary-row.total {
+      border-top: 1px solid #252e3c;
+      margin-top: 8px;
+      padding-top: 15px;
+      font-size: 16px;
     }
 
     .method {
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid #2a3444;
       border-radius: 12px;
       padding: 15px;
       margin-bottom: 12px;
       cursor: pointer;
+      background: #0b1018;
     }
 
     .method input {
@@ -141,63 +134,58 @@
       margin: 0 8px 0 0;
     }
 
-    .method span {
-      font-size: 14px;
+    .method-title {
+      font-weight: 700;
     }
 
-    .details-box {
+    .method-description {
+      display: block;
+      color: #8f9aaa;
+      font-size: 13px;
+      margin-top: 4px;
+      margin-left: 24px;
+    }
+
+    .hidden {
       display: none;
-      margin-top: 15px;
     }
 
-    .upload {
-      border: 1px dashed rgba(255,255,255,0.2);
-      border-radius: 12px;
-      padding: 25px;
-      text-align: center;
-      margin-bottom: 15px;
-    }
-
-    .upload p {
-      color: #9299a5;
+    .notice {
+      background: #141b27;
+      border-left: 3px solid #778399;
+      padding: 13px;
+      border-radius: 8px;
+      color: #b9c1ce;
       font-size: 13px;
-      margin-bottom: 15px;
+      margin-bottom: 18px;
     }
 
-    .upload input {
-      border: none;
-      padding: 0;
-      background: transparent;
-      margin: 0;
-    }
-
-    .terms {
+    .checkbox {
       display: flex;
-      gap: 10px;
       align-items: flex-start;
+      gap: 10px;
       margin: 20px 0;
-      color: #9299a5;
+      color: #aeb7c5;
       font-size: 13px;
     }
 
-    .terms input {
+    .checkbox input {
       width: auto;
-      margin-top: 3px;
+      margin: 3px 0 0;
     }
 
-    .terms a {
+    a {
       color: #ffffff;
-      text-decoration: underline;
     }
 
     button {
       width: 100%;
-      padding: 16px;
+      padding: 15px;
       border: none;
-      border-radius: 10px;
+      border-radius: 11px;
       background: #ffffff;
-      color: #07090d;
-      font-size: 15px;
+      color: #080b12;
+      font-size: 16px;
       font-weight: 800;
       cursor: pointer;
     }
@@ -206,55 +194,80 @@
       opacity: 0.9;
     }
 
-    .notice {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 10px;
-      padding: 15px;
-      color: #9299a5;
-      font-size: 12px;
-      line-height: 1.6;
-      margin-top: 20px;
+    .secondary-btn {
+      background: #202938;
+      color: #ffffff;
+      margin-top: 10px;
     }
 
-    #review {
-      display: none;
-      margin-top: 25px;
-      padding: 22px;
-      border-radius: 14px;
-      background: #080b10;
-      border: 1px solid rgba(255,255,255,0.1);
+    .whatsapp-btn {
+      background: #ffffff;
+      color: #080b12;
+      margin-top: 14px;
     }
 
-    #review h3 {
-      margin-bottom: 15px;
+    .result {
+      text-align: center;
     }
 
-    .review-row {
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #18202d;
       display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      font-size: 13px;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+      font-size: 28px;
     }
 
-    .review-row span:first-child {
-      color: #858d99;
+    .order-code {
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin: 12px 0;
+      padding: 15px;
+      border-radius: 12px;
+      background: #080c13;
+      border: 1px dashed #455066;
     }
 
-    @media (max-width: 600px) {
-      .container {
-        width: 94%;
-        margin-top: 35px;
+    .status {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 20px;
+      background: #1a2230;
+      color: #d3d9e2;
+      font-size: 12px;
+      margin: 10px 0 20px;
+    }
+
+    .small {
+      font-size: 12px;
+      color: #7f8998;
+      margin-top: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      border-top: 1px solid #1e2533;
+      color: #737d8d;
+      font-size: 12px;
+    }
+
+    @media (max-width: 500px) {
+      .title h1 {
+        font-size: 27px;
       }
 
-      .form-card {
-        padding: 22px;
+      .card {
+        padding: 19px;
       }
 
-      .intro h1 {
-        font-size: 34px;
+      .order-code {
+        font-size: 22px;
       }
     }
   </style>
@@ -264,37 +277,33 @@
 
 <header>
   <div class="logo">QEVORA</div>
-  <a href="index.html">← Back Home</a>
 </header>
 
-<div class="container">
+<main class="container">
 
-  <div class="intro">
-    <h1>Trade QEVORA Card</h1>
-    <p>
-      Submit your eligible card information for review.
-    </p>
+  <!-- TITLE -->
+  <div class="title">
+    <h1>Trade Your Card</h1>
+    <p>Submit your card information and choose your preferred payout method.</p>
   </div>
 
-  <div class="form-card">
 
-    <div class="form-section">
+  <!-- TRADE FORM -->
+  <div id="tradeForm">
 
-      <h2>01 — Card Information</h2>
+    <div class="card">
+      <h2>1. Card Details</h2>
 
       <label for="amount">Card Value</label>
-
       <input
         type="number"
         id="amount"
+        placeholder="Enter card value"
         min="1"
         step="0.01"
-        placeholder="Enter card value"
-        oninput="calculateFee()"
       >
 
       <label for="currency">Currency</label>
-
       <select id="currency">
         <option value="USD">USD — US Dollar</option>
         <option value="NGN">NGN — Nigerian Naira</option>
@@ -302,296 +311,645 @@
         <option value="CAD">CAD — Canadian Dollar</option>
       </select>
 
-      <div class="amount-preview">
-
-        <div>
-          <span>Card value</span>
-          <span id="cardValue">0.00</span>
+      <div class="summary">
+        <div class="summary-row">
+          <span>Card Value</span>
+          <strong id="displayAmount">$0.00</strong>
         </div>
 
-        <div>
-          <span>QEVORA service fee</span>
-          <span id="feeValue">0.00</span>
+        <div class="summary-row">
+          <span>QEVORA Service Fee (10%)</span>
+          <strong id="displayFee">$0.00</strong>
         </div>
 
-        <div class="total">
-          <span>Estimated payout</span>
-          <span id="payoutValue">0.00</span>
+        <div class="summary-row">
+          <span>Estimated Net Payout</span>
+          <strong id="displayPayout">$0.00</strong>
         </div>
-
       </div>
-
     </div>
 
 
-    <div class="form-section">
-
-      <h2>02 — Payout Method</h2>
+    <div class="card">
+      <h2>2. Choose Payout Method</h2>
 
       <label class="method">
         <input
           type="radio"
-          name="payment"
+          name="payoutMethod"
           value="bank"
-          onclick="showMethod('bank')"
+          checked
         >
-        <span>Direct Bank Transfer</span>
+        <span class="method-title">Direct Bank Transfer</span>
+        <span class="method-description">
+          Receive your approved payout directly into your bank account.
+        </span>
       </label>
-
-      <div id="bankDetails" class="details-box">
-
-        <label for="accountName">Account Name</label>
-
-        <input
-          type="text"
-          id="accountName"
-          placeholder="Enter account name"
-        >
-
-        <label for="accountNumber">Account Number</label>
-
-        <input
-          type="text"
-          id="accountNumber"
-          inputmode="numeric"
-          placeholder="Enter account number"
-        >
-
-        <label for="bankName">Bank Name</label>
-
-        <input
-          type="text"
-          id="bankName"
-          placeholder="Enter bank name"
-        >
-
-      </div>
-
 
       <label class="method">
         <input
           type="radio"
-          name="payment"
+          name="payoutMethod"
           value="usdt"
-          onclick="showMethod('usdt')"
         >
-        <span>USDT</span>
+        <span class="method-title">USDT</span>
+        <span class="method-description">
+          Receive your approved payout to a supported USDT wallet.
+        </span>
       </label>
-
-      <div id="usdtDetails" class="details-box">
-
-        <label for="usdtNetwork">USDT Network</label>
-
-        <select id="usdtNetwork">
-          <option value="">Select network</option>
-          <option value="TRC20">TRC20</option>
-          <option value="ERC20">ERC20</option>
-          <option value="BEP20">BEP20</option>
-        </select>
-
-        <label for="usdtAddress">USDT Address</label>
-
-        <input
-          type="text"
-          id="usdtAddress"
-          placeholder="Enter receiving USDT address"
-        >
-
-      </div>
-
     </div>
 
 
-    <div class="form-section">
+    <!-- BANK DETAILS -->
+    <div class="card" id="bankSection">
+      <h2>3. Bank Details</h2>
 
-      <h2>03 — Supporting Document</h2>
+      <label for="accountName">Account Name</label>
+      <input
+        type="text"
+        id="accountName"
+        placeholder="Enter account name"
+      >
 
-      <div class="upload">
+      <label for="accountNumber">Account Number</label>
+      <input
+        type="text"
+        id="accountNumber"
+        placeholder="Enter account number"
+      >
 
-        <p>
-          Upload a clear image showing the eligible card.
-        </p>
-
-        <input
-          type="file"
-          id="cardImage"
-          accept="image/png,image/jpeg,image/webp"
-        >
-
-      </div>
-
+      <label for="bankName">Bank Name</label>
+      <input
+        type="text"
+        id="bankName"
+        placeholder="Enter bank name"
+      >
     </div>
 
 
-    <div class="terms">
+    <!-- USDT DETAILS -->
+    <div class="card hidden" id="usdtSection">
+      <h2>3. USDT Details</h2>
 
-      <input type="checkbox" id="agree">
+      <label for="network">Network</label>
+      <select id="network">
+        <option value="TRC20">TRC20</option>
+        <option value="ERC20">ERC20</option>
+        <option value="BEP20">BEP20</option>
+      </select>
 
-      <label for="agree">
-        I agree to the
-        <a href="terms.html" target="_blank">
-          TERMS AND COMMUNITY GUIDELINES
-        </a>
-        and confirm that the information I provide is accurate.
-      </label>
-
+      <label for="usdtAddress">USDT Wallet Address</label>
+      <input
+        type="text"
+        id="usdtAddress"
+        placeholder="Enter USDT wallet address"
+      >
     </div>
 
 
-    <button onclick="reviewTrade()">
-      Review Trade
-    </button>
-
-
-    <div id="review">
-
-      <h3>Trade Review</h3>
-
-      <div class="review-row">
-        <span>Card Value</span>
-        <strong id="reviewAmount">—</strong>
-      </div>
-
-      <div class="review-row">
-        <span>Service Fee</span>
-        <strong id="reviewFee">—</strong>
-      </div>
-
-      <div class="review-row">
-        <span>Estimated Payout</span>
-        <strong id="reviewPayout">—</strong>
-      </div>
-
-      <div class="review-row">
-        <span>Payout Method</span>
-        <strong id="reviewMethod">—</strong>
-      </div>
+    <!-- SUPPORTING DOCUMENT -->
+    <div class="card">
+      <h2>4. Supporting Document</h2>
 
       <div class="notice">
-        Your submission will require verification before any payout
-        is approved. Review all information carefully before continuing.
+        Upload a clear image of your card or supporting document for verification.
+        Do not upload passwords, private keys, or other confidential credentials.
       </div>
 
+      <input
+        type="file"
+        id="cardImage"
+        accept="image/*"
+      >
+
+      <div class="checkbox">
+        <input type="checkbox" id="terms">
+        <label for="terms">
+          I confirm that I have the right to submit this card and agree to the
+          <a href="terms.html" target="_blank">QEVORA Terms & Community Guidelines</a>.
+        </label>
+      </div>
+
+      <button type="button" onclick="reviewTrade()">
+        Review Trade
+      </button>
     </div>
 
   </div>
 
-</div>
+
+  <!-- REVIEW SECTION -->
+  <div class="card hidden" id="reviewSection">
+
+    <h2>Review Your Trade</h2>
+
+    <div class="summary">
+
+      <div class="summary-row">
+        <span>Card Value</span>
+        <strong id="reviewAmount"></strong>
+      </div>
+
+      <div class="summary-row">
+        <span>Service Fee</span>
+        <strong id="reviewFee"></strong>
+      </div>
+
+      <div class="summary-row">
+        <span>Estimated Net Payout</span>
+        <strong id="reviewPayout"></strong>
+      </div>
+
+      <div class="summary-row">
+        <span>Payout Method</span>
+        <strong id="reviewMethod"></strong>
+      </div>
+
+    </div>
+
+    <div class="notice" style="margin-top:18px;">
+      Please review the information above carefully. The service fee is displayed
+      before you proceed.
+    </div>
+
+    <button type="button" onclick="finalizeTrade()">
+      Finalize Payment
+    </button>
+
+    <button
+      type="button"
+      class="secondary-btn"
+      onclick="backToForm()"
+    >
+      Edit Trade
+    </button>
+
+  </div>
+
+
+  <!-- ORDER CONFIRMATION -->
+  <div class="card hidden result" id="confirmationSection">
+
+    <div class="success-icon">✓</div>
+
+    <h2>Trade Request Created</h2>
+
+    <p style="color:#aeb7c5;">
+      Your QEVORA trade request has been assigned a unique order code.
+      Keep this code for all communication with QEVORA Support.
+    </p>
+
+    <div class="order-code" id="orderCode">
+      QEV-XXXXXX
+    </div>
+
+    <button
+      type="button"
+      class="secondary-btn"
+      onclick="copyOrderCode()"
+    >
+      Copy Order Code
+    </button>
+
+    <div class="status">
+      Monnify payment details: Pending confirmation
+    </div>
+
+    <div class="summary" style="text-align:left;">
+
+      <div class="summary-row">
+        <span>Service Fee</span>
+        <strong id="confirmationFee"></strong>
+      </div>
+
+      <div class="summary-row">
+        <span>NGN Equivalent</span>
+        <strong id="confirmationNaira"></strong>
+      </div>
+
+      <div class="summary-row">
+        <span>Payout Method</span>
+        <strong id="confirmationMethod"></strong>
+      </div>
+
+    </div>
+
+    <div class="notice" style="text-align:left; margin-top:18px;">
+      To request payment instructions for your order, contact QEVORA Support
+      through the official WhatsApp button below and include your order code.
+      Do not send passwords, private keys, or other confidential credentials.
+    </div>
+
+    <button
+      type="button"
+      class="whatsapp-btn"
+      onclick="openWhatsApp()"
+    >
+      Contact QEVORA on WhatsApp
+    </button>
+
+    <p class="small">
+      Your order code is unique to this trade request.
+    </p>
+
+  </div>
+
+</main>
+
+
+<footer>
+  © 2026 QEVORA. All rights reserved.
+</footer>
 
 
 <script>
 
-  /*
-    QEVORA demo calculation.
-
-    The 10% figure below is configured as a service fee for the
-    prototype. Before a real launch, replace this with the actual
-    legally applicable fee structure.
-  */
-
   const SERVICE_FEE_RATE = 0.10;
 
+  /*
+    Demonstration exchange rates.
 
-  function calculateFee() {
+    IMPORTANT:
+    These are frontend display rates only.
+    For a live production platform, connect this calculation
+    to a verified exchange-rate service/backend.
+  */
+  const NAIRA_RATES = {
+    USD: 1500,
+    GBP: 2000,
+    CAD: 1100,
+    NGN: 1
+  };
+
+
+  function formatMoney(value, currency) {
+
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: currency,
+      minimumFractionDigits: 2
+    }).format(value || 0);
+
+  }
+
+
+  function updateSummary() {
 
     const amount =
       parseFloat(document.getElementById("amount").value) || 0;
 
-    const fee = amount * SERVICE_FEE_RATE;
+    const currency =
+      document.getElementById("currency").value;
 
-    const payout = amount - fee;
+    const fee =
+      amount * SERVICE_FEE_RATE;
 
-    document.getElementById("cardValue").textContent =
-      amount.toFixed(2);
+    const payout =
+      amount - fee;
 
-    document.getElementById("feeValue").textContent =
-      fee.toFixed(2);
+    document.getElementById("displayAmount").textContent =
+      formatMoney(amount, currency);
 
-    document.getElementById("payoutValue").textContent =
-      payout.toFixed(2);
+    document.getElementById("displayFee").textContent =
+      formatMoney(fee, currency);
+
+    document.getElementById("displayPayout").textContent =
+      formatMoney(payout, currency);
   }
 
 
-  function showMethod(method) {
+  document
+    .getElementById("amount")
+    .addEventListener("input", updateSummary);
 
-    document.getElementById("bankDetails").style.display =
-      method === "bank" ? "block" : "none";
 
-    document.getElementById("usdtDetails").style.display =
-      method === "usdt" ? "block" : "none";
-  }
+  document
+    .getElementById("currency")
+    .addEventListener("change", updateSummary);
 
+
+  /* PAYOUT METHOD SWITCH */
+
+  document
+    .querySelectorAll('input[name="payoutMethod"]')
+    .forEach(function(radio) {
+
+      radio.addEventListener("change", function() {
+
+        const bank =
+          document.querySelector(
+            'input[name="payoutMethod"]:checked'
+          ).value === "bank";
+
+        document
+          .getElementById("bankSection")
+          .classList.toggle("hidden", !bank);
+
+        document
+          .getElementById("usdtSection")
+          .classList.toggle("hidden", bank);
+
+      });
+
+    });
+
+
+  /* REVIEW TRADE */
 
   function reviewTrade() {
 
     const amount =
       parseFloat(document.getElementById("amount").value) || 0;
 
-    const agreement =
-      document.getElementById("agree").checked;
+    const currency =
+      document.getElementById("currency").value;
 
-    const image =
-      document.getElementById("cardImage").files.length;
-
-    const selectedPayment =
-      document.querySelector('input[name="payment"]:checked');
-
+    const terms =
+      document.getElementById("terms").checked;
 
     if (amount <= 0) {
       alert("Please enter a valid card value.");
       return;
     }
 
-
-    if (!selectedPayment) {
-      alert("Please select a payout method.");
+    if (!terms) {
+      alert("Please accept the QEVORA Terms & Community Guidelines.");
       return;
     }
 
+    const method =
+      document.querySelector(
+        'input[name="payoutMethod"]:checked'
+      ).value;
 
-    if (!image) {
-      alert("Please upload the required card image.");
-      return;
+    if (method === "bank") {
+
+      const accountName =
+        document.getElementById("accountName").value.trim();
+
+      const accountNumber =
+        document.getElementById("accountNumber").value.trim();
+
+      const bankName =
+        document.getElementById("bankName").value.trim();
+
+      if (!accountName || !accountNumber || !bankName) {
+        alert("Please complete your bank details.");
+        return;
+      }
+
+    } else {
+
+      const wallet =
+        document.getElementById("usdtAddress").value.trim();
+
+      if (!wallet) {
+        alert("Please enter your USDT wallet address.");
+        return;
+      }
+
     }
 
+    const fee =
+      amount * SERVICE_FEE_RATE;
 
-    if (!agreement) {
-      alert("Please agree to the Terms and Community Guidelines.");
-      return;
-    }
-
-
-    const fee = amount * SERVICE_FEE_RATE;
-
-    const payout = amount - fee;
-
-    const currency =
-      document.getElementById("currency").value;
-
+    const payout =
+      amount - fee;
 
     document.getElementById("reviewAmount").textContent =
-      currency + " " + amount.toFixed(2);
+      formatMoney(amount, currency);
 
     document.getElementById("reviewFee").textContent =
-      currency + " " + fee.toFixed(2);
+      formatMoney(fee, currency);
 
     document.getElementById("reviewPayout").textContent =
-      currency + " " + payout.toFixed(2);
+      formatMoney(payout, currency);
 
     document.getElementById("reviewMethod").textContent =
-      selectedPayment.value === "bank"
+      method === "bank"
         ? "Direct Bank Transfer"
         : "USDT";
 
+    document
+      .getElementById("tradeForm")
+      .classList.add("hidden");
 
-    document.getElementById("review").style.display =
-      "block";
+    document
+      .getElementById("reviewSection")
+      .classList.remove("hidden");
 
-    document.getElementById("review").scrollIntoView({
+    window.scrollTo({
+      top: 0,
       behavior: "smooth"
     });
 
   }
+
+
+  /* GENERATE PROFESSIONAL ORDER CODE */
+
+  function generateOrderCode() {
+
+    const characters =
+      "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+
+    let code = "";
+
+    for (let i = 0; i < 6; i++) {
+
+      code +=
+        characters.charAt(
+          Math.floor(Math.random() * characters.length)
+        );
+
+    }
+
+    return "QEV-" + code;
+
+  }
+
+
+  /* FINALIZE TRADE */
+
+  function finalizeTrade() {
+
+    const amount =
+      parseFloat(document.getElementById("amount").value) || 0;
+
+    const currency =
+      document.getElementById("currency").value;
+
+    const fee =
+      amount * SERVICE_FEE_RATE;
+
+    const nairaRate =
+      NAIRA_RATES[currency];
+
+    const nairaFee =
+      fee * nairaRate;
+
+    const method =
+      document.querySelector(
+        'input[name="payoutMethod"]:checked'
+      ).value;
+
+    const orderCode =
+      generateOrderCode();
+
+
+    /*
+      Store the current order locally so the WhatsApp
+      message can use the exact same order code.
+    */
+
+    const orderData = {
+      orderCode: orderCode,
+      amount: amount,
+      currency: currency,
+      fee: fee,
+      nairaFee: nairaFee,
+      payoutMethod: method,
+      createdAt: new Date().toISOString()
+    };
+
+    localStorage.setItem(
+      "qevora_current_order",
+      JSON.stringify(orderData)
+    );
+
+
+    document.getElementById("orderCode").textContent =
+      orderCode;
+
+    document.getElementById("confirmationFee").textContent =
+      formatMoney(fee, currency);
+
+    document.getElementById("confirmationNaira").textContent =
+      formatMoney(nairaFee, "NGN");
+
+    document.getElementById("confirmationMethod").textContent =
+      method === "bank"
+        ? "Direct Bank Transfer"
+        : "USDT";
+
+
+    document
+      .getElementById("reviewSection")
+      .classList.add("hidden");
+
+    document
+      .getElementById("confirmationSection")
+      .classList.remove("hidden");
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  /* BACK TO FORM */
+
+  function backToForm() {
+
+    document
+      .getElementById("reviewSection")
+      .classList.add("hidden");
+
+    document
+      .getElementById("tradeForm")
+      .classList.remove("hidden");
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  /* COPY ORDER CODE */
+
+  function copyOrderCode() {
+
+    const orderCode =
+      document.getElementById("orderCode").textContent;
+
+    navigator.clipboard.writeText(orderCode)
+      .then(function() {
+
+        alert("Order code copied: " + orderCode);
+
+      })
+      .catch(function() {
+
+        alert("Your order code is: " + orderCode);
+
+      });
+
+  }
+
+
+  /* WHATSAPP */
+
+  function openWhatsApp() {
+
+    const savedOrder =
+      localStorage.getItem("qevora_current_order");
+
+    if (!savedOrder) {
+
+      alert("Order information could not be found.");
+      return;
+
+    }
+
+    const order =
+      JSON.parse(savedOrder);
+
+    const feeNaira =
+      new Intl.NumberFormat("en-NG", {
+        style: "currency",
+        currency: "NGN",
+        minimumFractionDigits: 2
+      }).format(order.nairaFee);
+
+
+    const method =
+      order.payoutMethod === "bank"
+        ? "Direct Bank Transfer"
+        : "USDT";
+
+
+    const message =
+`Hello QEVORA Support,
+
+I’m contacting you regarding my QEVORA trade order.
+
+Order Code: ${order.orderCode}
+Card Value: ${formatMoney(order.amount, order.currency)}
+QEVORA Service Fee: ${formatMoney(order.fee, order.currency)}
+NGN Equivalent: ${feeNaira}
+Payout Method: ${method}
+
+Please provide the official Monnify payment instructions/details associated with my order so I can complete the required service-fee payment.
+
+Thank you.
+QEVORA Customer`;
+
+
+    const whatsappURL =
+      "https://wa.me/2349070079857?text=" +
+      encodeURIComponent(message);
+
+
+    window.open(whatsappURL, "_blank");
+
+  }
+
+
+  updateSummary();
 
 </script>
 
